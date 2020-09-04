@@ -17,8 +17,8 @@ genNginxConf() {
   echo "events {}"
   echo "rtmp {"
   echo "    server {"
-  echo "        listen 1935;"
-  echo "        listen [::]:1935 ipv6only=on;"
+  echo "        listen $PORT;"
+  echo "        listen [::]:$PORT ipv6only=on;"
   echo ""
   echo "        application $LOCAL_STREAM {"
   echo "            live on;"
@@ -31,6 +31,11 @@ genNginxConf() {
   echo "    }"
   echo "}"
 }
+
+if [ -z "$PORT" ]; then
+  echo "PORT=[value] variable is required"
+  exit 0
+fi
 
 if [ -z "$LOCAL_STREAM" ]; then
   echo "LOCAL_STREAM=[value] variable is required"
