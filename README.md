@@ -4,6 +4,11 @@ Docker image for Nginx + Stunnel to enable streaming to multiple RTMP(S) service
 # Quick Start
 The image requires the following environment variables to be set.
 
+* PORT - port number that NGINX will listen on for RTMP stream. This should normalily be set to 1935.
+```
+PORT=1935
+```
+
 * STREAMS - space separated list of RTMP(S) URLs. 
 ```
 STREAMS="rtmp://a.rtmp.youtube.com/live2/[put_your_key_here] rtmps://live-api-s.facebook.com:443/rtmp/[put_your_key_here]" 
