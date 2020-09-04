@@ -1,5 +1,5 @@
 #!/bin/sh
-PORT=1936
+STUN_PORT=1936
 
 genStunnelConf() {
   echo "[$1]"
@@ -55,10 +55,10 @@ for A in $STREAMS; do
     #handle RTMPS URL
     HOST=$(echo "$A" | cut -d/ -f3)
     if [ -n "$HOST" ]; then
-      echo "$(genStunnelConf "$HOST" $PORT "$(echo "$A" | cut -d/ -f4-)")" >> /etc/stunnel/stunnel.conf
+      echo "$(genStunnelConf "$HOST" $STUN_PORT "$(echo "$A" | cut -d/ -f4-)")" >> /etc/stunnel/stunnel.conf
 
-      URLS="$URLS rtmp://127.0.0.1:$PORT/$(echo "$A" | cut -d/ -f4-) "
-      PORT=$(($PORT + 1))
+      URLS="$URLS rtmp://127.0.0.1:$STUN_PORT/$(echo "$A" | cut -d/ -f4-) "
+      STUN_PORT=$(($STUN_PORT + 1))
     fi
   elif [ -n "$(echo "$A" | grep "rtmp://")" ]; then
     #handle RTMP URL
