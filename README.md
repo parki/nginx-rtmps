@@ -12,7 +12,6 @@ PORT=1935
 * STREAMS - space separated list of RTMP(S) URLs. 
 ```
 STREAMS="rtmp://a.rtmp.youtube.com/live2/[put_your_key_here] rtmps://live-api-s.facebook.com:443/rtmp/[put_your_key_here]" 
-"
 ```
 
 * LOCAL_STREAM - name of the local stream that OBS will point to. This value is arbitrary and you just need to ensure that this name matches what you entered into OBS.
