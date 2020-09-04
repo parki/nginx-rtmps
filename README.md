@@ -22,7 +22,7 @@ LOCAL_STREAM=[name_of_your_local_stream]
 ## Run the container
 Map the container's port 1935 to a port on your server.
 ```
-docker run -p 1975:1975
+docker run -p 1935:1935
 ```
 
 ## OBS Setup
